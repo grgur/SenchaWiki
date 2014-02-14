@@ -14,8 +14,10 @@
   - - - -
   * # Android
   * [Building for Release](native/android/building_release.md)
+  * [Build and Deploy](native/android/build_and_deploy.md)
   * [Debugging KitKat+ (4.4+)](native/android/debugging_kitkat.md)
   * [Debugging older (<=4.3)](native/android/debugging.md)
+  * [Adb Path Errors](native/android/adb_path.md)
 
 [Coming up]()
 - - - -
