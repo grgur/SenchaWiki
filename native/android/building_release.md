@@ -1,3 +1,9 @@
+---
+layout: post
+date:   2014-02-14 19:05:21
+title: Building for Release to Google Play Store
+---
+
 Building for Release to Google Play Store
 =====
 

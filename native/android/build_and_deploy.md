@@ -1,3 +1,9 @@
+---
+layout: post
+date:   2014-02-14 19:05:21
+title: Build and Deploy to Android Device
+---
+
 Build and Deploy to Android Device
 ====
 

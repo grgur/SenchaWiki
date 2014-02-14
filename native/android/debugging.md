@@ -1,3 +1,9 @@
+---
+layout: post
+date:   2014-02-14 19:05:21
+title: Debugging on Android version <= 4.3
+---
+
 Debugging on Android version <= 4.3
 ======
 **Prerequisites**
