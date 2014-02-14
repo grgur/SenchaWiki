@@ -1,9 +1,12 @@
-What to ignore when building for native
-=======================================
+---
+layout: post
+date:   2014-02-14 19:05:21
+title: What to .gitignore
+---
 
 Once you create your first native built, the number of files in your project will increase tremendeously. You don't want most of that to clutter your Git repo as they will re-generate on each `sencha app build native`.
 
-Global (project) _.gitignore_
+Global (project) `.gitignore`
 --------------------------------
 First of all you may want to ommit the general suspects.
 
@@ -91,8 +94,8 @@ cordova/platforms/ios/MI.xcodeproj/project.xcworkspace
 cordova/platforms/ios/MI.xcodeproj/xcuserdata
 ```
 
-Cordova's _.gitignore_ fix
----------------------------
+Cordova's `.gitignore` fix
+-----------------------
 
 There's a glitch in some versions of Cordova where they ignored _build_ ending up in omitting important content.
 
