@@ -13,17 +13,17 @@
   <title>{{ site.title }}{{ page.title }}</title>
 
   <!-- CSS Files -->
-  <link rel="stylesheet" href="assets/css/app.css">
+  <link rel="stylesheet" href="/assets/css/foundation.min.css">
+  <link rel="stylesheet" href="/assets/css/pygments.css">
 
-  <script src="assets/js/modernizr.foundation.js"></script>
+  <script src="/assets/js/modernizr.foundation.js"></script>
 
 </head>
-	<body>
-		
+  <body>
+    
 <!-- Whole Body Div -->
 <div class="row">
 <div class="twelve columns centered">
-
 
 {% include nav.html %}
 
@@ -31,10 +31,10 @@
 <div id="wrapper">
 
 
-	{{ content }}	
+  {{ content }} 
 
 
-<!-- end wrapper -->	
+<!-- end wrapper -->  
 </div>
 
 {% include footer.html %}
@@ -45,13 +45,14 @@
 
   <!-- Included JS Files (Compressed) -->
   <!-- Included JS Files (Compressed) -->
-  <script src="assets/js/jquery.js"></script>
-  <script src="assets/js/foundation.min.js"></script>
+  <script src="/assets/js/jquery.js"></script>
+  <script src="/assets/js/foundation.min.js"></script>
+  <script src="/assets/js/fastclick.js"></script>
+  <script src="/assets/js/jquery.cookie.js"></script>
+  <script src="/assets/js/placeholder.js"></script>
   
   <!-- Initialize JS Plugins -->
-  <script src="assets/js/app.js"></script>
+  <script src="/assets/js/app.js"></script>
 
 </body>
 </html>
-
-
