@@ -7,6 +7,7 @@ BarcodeScanner
 ```cordova plugin add https://github.com/wildabeast/BarcodeScanner```
 
 Then add this section after the closing `<author>` tag in `./config.xml`
+
 ```
 <feature name="BarcodeScanner">
     <param name="ios-package" value="CDVBarcodeScanner" />
