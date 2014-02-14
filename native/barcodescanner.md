@@ -25,7 +25,7 @@ This will enable the Scanner plugin for iOS and Android deployments.
 
 Here's a class you can use invoke the scanner:
 
-```javascript
+{% highlight javascript %}
 /**
  * Created by grgur on 28/01/14.
  */
@@ -94,4 +94,4 @@ Ext.define('MyApp.Barcode', {
         return scanner.scan(success.bind(scope), failure.bind(scope));
     }
 });
-```
+{% endhighlight %}
