@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 date:   2014-02-14 19:05:21
 title: Fix for Hardcoded ADB Path
 ---
