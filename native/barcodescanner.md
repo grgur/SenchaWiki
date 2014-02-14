@@ -14,12 +14,12 @@ BarcodeScanner
 
 Then add this section after the closing `<author>` tag in `./config.xml`
 
-```
+{% highlight xml %}
 <feature name="BarcodeScanner">
     <param name="ios-package" value="CDVBarcodeScanner" />
     <param name="android-package" value="com.phonegap.plugins.barcodescanner.BarcodeScanner" />
 </feature>
-```
+{% endhighlight %}
 
 This will enable the Scanner plugin for iOS and Android deployments. 
 

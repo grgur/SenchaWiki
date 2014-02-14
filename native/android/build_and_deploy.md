@@ -11,8 +11,8 @@ When you debug on Android phones, copying over to native device and manually ins
 
 Here is what I often do to build a ST2 app and deploy automatically:
 
-```
+{% highlight bash %}
 sencha app build native && adb -d install -r cordova/platforms/android/bin/MYAPP-debug.apk 
-```
+{% endhighlight %}
 
 The secret sauce comes after the `&&` part. Adb (belongs to Android Tools) will install (and replace if needed) the apk file after Sencha Cmd and Cordova build it. Of course, you will need to have your device plugged in with debugging mode on.

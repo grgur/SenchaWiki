@@ -13,9 +13,9 @@ The `cordova/platforms/android/local.properties` file clearly states that it sho
 
 The solution is to specify an environment variable that Cordova understands. In your `~/.profile` or `~/.bash_profile` append this line:
 
-```
+{% highlight bash %}
 export ANDROID_HOME=/path/to/android/sdk/
-```
+{% endhighlight %}
 
 Of course, you will need to reflect your real path to make it work. 
 
