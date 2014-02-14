@@ -1,13 +1,13 @@
 CACHE MANIFEST
 
-#version 1.02 2-14-2014
+#version 1.04 2-14-2014
 
 CACHE:
 
 #images
 
 #internal HTML documents
-#index.html
+index.html
 
 #style sheets
 
