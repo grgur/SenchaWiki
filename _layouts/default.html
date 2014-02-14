@@ -15,17 +15,19 @@
   <!-- CSS Files -->
   <link rel="stylesheet" href="/assets/css/foundation.min.css">
   <link rel="stylesheet" href="/assets/css/pygments.css">
+  <link rel="stylesheet" href="/assets/css/normalize.css">
+  <link rel="stylesheet" href="/assets/css/app.css">
 
   <script src="/assets/js/modernizr.foundation.js"></script>
 
 </head>
   <body>
     
+  {% include nav.html %} 
+  
 <!-- Whole Body Div -->
 <div class="row">
 <div class="twelve columns centered">
-
-{% include nav.html %}
 
 <!-- Main page content -->
 <div id="wrapper">
@@ -36,6 +38,16 @@
 
 <!-- end wrapper -->  
 </div>
+
+<nav class="nav-primary" role="navigation" >
+    <ul class="side-nav">
+        {% for p in site.pages %}{% if p.url != page.url %}
+        <li>
+          <a href="{{ p.url }}">{{ p.title }}</a>
+        </li>{% endif %}
+        {% endfor %}
+    </ul>
+</nav>
 
 {% include footer.html %}
 
@@ -56,3 +68,5 @@
 
 </body>
 </html>
+
+
