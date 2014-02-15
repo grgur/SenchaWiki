@@ -45,3 +45,8 @@ pre code {font-family: inherit; font-weight: normal; color: inherit; white-space
   white-space: pre; 
   overflow: auto;
 }
+
+.addthis_toolbox {
+  margin: 0 auto;
+  display: table;
+}
