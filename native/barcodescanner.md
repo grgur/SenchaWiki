@@ -1,3 +1,9 @@
+---
+layout: post
+date:   2014-02-14 19:05:21
+title: BarcodeScanner plugin
+---
+
 BarcodeScanner
 =======
 
@@ -8,18 +14,18 @@ BarcodeScanner
 
 Then add this section after the closing `<author>` tag in `./config.xml`
 
-```
+{% highlight xml %}
 <feature name="BarcodeScanner">
     <param name="ios-package" value="CDVBarcodeScanner" />
     <param name="android-package" value="com.phonegap.plugins.barcodescanner.BarcodeScanner" />
 </feature>
-```
+{% endhighlight %}
 
 This will enable the Scanner plugin for iOS and Android deployments. 
 
 Here's a class you can use invoke the scanner:
 
-```javascript
+{% highlight javascript %}
 /**
  * Created by grgur on 28/01/14.
  */
@@ -88,4 +94,4 @@ Ext.define('MyApp.Barcode', {
         return scanner.scan(success.bind(scope), failure.bind(scope));
     }
 });
-```
+{% endhighlight %}
