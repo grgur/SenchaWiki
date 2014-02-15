@@ -1,6 +1,6 @@
 CACHE MANIFEST
 
-#version 2.17 2-15-2014
+#version 2.18 2-15-2014
 
 CACHE:
 
@@ -38,7 +38,6 @@ http://wiki.grgur.com/assets/js/placeholder.js
 http://wiki.grgur.com/assets/js/app.js
 http://www.google-analytics.com/analytics.js
 http://ct1.addthis.com/static/r07/auth016.js
-http://grgurwiki.disqus.com/embed.js
 http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52ff6814440a1f04
 http://ct1.addthis.com/static/r07/core122.js
 
