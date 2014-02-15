@@ -63,3 +63,23 @@ var disqus_shortname = 'grgurwiki'; // required: replace example with your forum
     dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 })();
+
+
+//addthis
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52ff6814440a1f04';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+addthis.layers({
+  'theme' : 'transparent',
+  'share' : {
+    'position' : 'left',
+    'numPreferredServices' : 4
+  }, 
+  'follow' : {
+    'services' : [
+      {'service': 'twitter', 'id': 'ggrgur'}
+    ]
+  }   
+});
