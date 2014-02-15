@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width" />
+
+  <title>BarcodeScanner plugin</title>
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="/assets/css/foundation.min.css">
+  <link rel="stylesheet" href="/assets/css/pygments.css">
+  <link rel="stylesheet" href="/assets/css/normalize.css">
+  <link rel="stylesheet" href="/assets/css/app.css">
+
+  <script src="/assets/js/modernizr.foundation.js"></script>
+
+</head>
+  <body>
+    
+    <nav class="top-bar" data-topbar>
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="/">Grgur's Sencha Wiki</a></h1>
+    </li>
+    <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+    <li class="divider"></li>
+      <li class="has-dropdown">
+        <a href="#">Native Development</a>
+        <ul class="dropdown">
+          <li><label>General</label></li>
+          <li><a href="/native/adding_cordova_plugins.html">Adding Cordova Plugins</a></li>
+          <li><a href="/native/barcodescanner.html">Barcode Scanner</a></li>
+          <li><a href="/native/changing_application_id.html">Changing App ID</a></li>
+          <li><a href="/native/debugging_js.html">Debugging Native Builds</a></li>
+          <li><a href="/native/ignores.html">Setting .gitignore</a></li>
+          <li class="divider"></li>
+          <li><label>iOS</label></li>
+          <li><a href="/native/ios/creating_ipa.html">Automatic IPA Generation</a></li>
+          <li class="divider"></li>
+          <li><label>Android</label></li>
+          <li><a href="/native/android/building_release.html">Building for Release</a></li>
+          <li><a href="/native/android/build_and_deploy.html">Build and Deploy</a></li>
+          <li><a href="/native/android/debugging_kitkat.html">Debugging KitKat+ (4.4+)</a></li>
+          <li><a href="/native/android/debugging.html">Debugging older (<=4.3)</a></li>
+          <li><a href="/native/android/adb_path.html">Adb Path Errors</a></li>
+        </ul>
+      </li>
+
+      <!-- <li class="has-dropdown">
+        <a href="#">iOS</a>
+        <ul class="dropdown">
+          <li><a href="/native/ios/creating_ipa.html">Automatic IPA Generation</a></li>
+        </ul>
+      </li>
+
+      <li class="has-dropdown">
+        <a href="#">Android</a>
+        <ul class="dropdown">
+          <li><a href="/native/android/building_release.html">Building for Release</a></li>
+          <li><a href="/native/android/build_and_deploy.html">Build and Deploy</a></li>
+          <li><a href="/native/android/debugging_kitkat.html">Debugging KitKat+ (4.4+)</a></li>
+          <li><a href="/native/android/debugging.html">Debugging older (<=4.3)</a></li>
+          <li><a href="/native/android/adb_path.html">Adb Path Errors</a></li>
+        </ul>
+      </li> -->
+    </ul>
+
+  </section>
+</nav>
+
+<!-- Whole Body Div -->
+<div class="row">
+<div class="twelve columns centered">
+
+
+<!-- Main page content -->
+<div id="wrapper">
+
+
+  <h1 id="barcodescanner">BarcodeScanner</h1>
+
+<p><strong>BarcodeScanner plugin repo:</strong> https://github.com/wildabeast/BarcodeScanner</p>
+
+<p><strong>Installation:</strong> <code>cordova plugin add https://github.com/wildabeast/BarcodeScanner</code></p>
+
+<p>Then add this section after the closing <code>&lt;author&gt;</code> tag in <code>./config.xml</code></p>
+<div class='highlight'><pre><code class='xml'><span class='nt'>&lt;feature</span> <span class='na'>name=</span><span class='s'>&quot;BarcodeScanner&quot;</span><span class='nt'>&gt;</span>
+    <span class='nt'>&lt;param</span> <span class='na'>name=</span><span class='s'>&quot;ios-package&quot;</span> <span class='na'>value=</span><span class='s'>&quot;CDVBarcodeScanner&quot;</span> <span class='nt'>/&gt;</span>
+    <span class='nt'>&lt;param</span> <span class='na'>name=</span><span class='s'>&quot;android-package&quot;</span> <span class='na'>value=</span><span class='s'>&quot;com.phonegap.plugins.barcodescanner.BarcodeScanner&quot;</span> <span class='nt'>/&gt;</span>
+<span class='nt'>&lt;/feature&gt;</span>
+</code></pre></div>
+<p>This will enable the Scanner plugin for iOS and Android deployments.</p>
+
+<p>Here’s a class you can use invoke the scanner:</p>
+<div class='highlight'><pre><code class='javascript'><span class='cm'>/**</span>
+<span class='cm'> * Created by grgur on 28/01/14.</span>
+<span class='cm'> */</span>
+
+<span class='cm'>/**</span>
+<span class='cm'> * Singleton for working with the Cordova Barcode scanner plugin</span>
+<span class='cm'> */</span>
+<span class='nx'>Ext</span><span class='p'>.</span><span class='nx'>define</span><span class='p'>(</span><span class='s1'>&#39;MyApp.Barcode&#39;</span><span class='p'>,</span> <span class='p'>{</span>
+    <span class='nx'>singleton</span> <span class='o'>:</span> <span class='kc'>true</span><span class='p'>,</span>
+
+    <span class='cm'>/**</span>
+<span class='cm'>     * Check for dependencies and return the scanner plugin.</span>
+<span class='cm'>     * return false otherwise</span>
+<span class='cm'>     * @returns {window.plugins.barcodeScanner|*}</span>
+<span class='cm'>     */</span>
+    <span class='nx'>getScanner</span> <span class='o'>:</span> <span class='kd'>function</span> <span class='p'>()</span> <span class='p'>{</span>
+        <span class='kd'>var</span> <span class='nx'>isCordova</span> <span class='o'>=</span> <span class='nb'>window</span><span class='p'>.</span><span class='nx'>hasOwnProperty</span><span class='p'>(</span><span class='s1'>&#39;cordova&#39;</span><span class='p'>),</span>
+        	<span class='nx'>cordova</span> <span class='o'>=</span> <span class='nb'>window</span><span class='p'>.</span><span class='nx'>cordova</span><span class='p'>,</span>
+            <span class='nx'>scanner</span> <span class='o'>=</span> <span class='nx'>isCordova</span> <span class='o'>?</span> <span class='nx'>cordova</span><span class='p'>.</span><span class='nx'>require</span><span class='p'>(</span><span class='s2'>&quot;com.phonegap.plugins.barcodescanner.BarcodeScanner&quot;</span><span class='p'>)</span> <span class='o'>:</span> <span class='kc'>null</span><span class='p'>;</span>
+
+        <span class='k'>if</span> <span class='p'>(</span><span class='nx'>Ext</span><span class='p'>.</span><span class='nx'>isObject</span><span class='p'>(</span><span class='nx'>scanner</span><span class='p'>))</span> <span class='p'>{</span>
+            <span class='k'>return</span> <span class='nx'>scanner</span><span class='p'>;</span>
+        <span class='p'>}</span>
+
+        <span class='c1'>// try alternative method if cordova.require can&#39;t find the plugin</span>
+        <span class='nx'>scanner</span> <span class='o'>=</span> <span class='nx'>isCordova</span> <span class='o'>?</span> <span class='nx'>cordova</span><span class='p'>.</span><span class='nx'>plugins</span><span class='p'>.</span><span class='nx'>barcodeScanner</span> <span class='o'>:</span> <span class='kc'>null</span><span class='p'>;</span>
+        <span class='k'>return</span> <span class='nx'>scanner</span><span class='p'>;</span>
+    <span class='p'>},</span>
+
+    <span class='cm'>/**</span>
+<span class='cm'>     * Start scanning</span>
+<span class='cm'>     * @param cfg</span>
+<span class='cm'>     * @param success {Function} Success callback</span>
+<span class='cm'>     *      @argument result {Object} The only argument in success callback containing:</span>
+<span class='cm'>     *          @param text {String} Recognized barcode</span>
+<span class='cm'>     *          @param format {String} Barcode format</span>
+<span class='cm'>     *          @param cancelled {Boolean} True when user cancels</span>
+<span class='cm'>     * @param failure</span>
+<span class='cm'>     *      @argument error {String} Description of the error</span>
+<span class='cm'>     * @param scope {Object} Scope for success and failure callbacks</span>
+<span class='cm'>     *</span>
+<span class='cm'>     * Example:</span>
+<span class='cm'>     *</span>
+<span class='cm'>     *          MyApp.Barcode.scan({</span>
+<span class='cm'>     *              success: function (result) {</span>
+<span class='cm'>     *                  alert(&quot;We got a barcode\n&quot; +</span>
+<span class='cm'>     *                      &quot;Result: &quot; + result.text + &quot;\n&quot; +</span>
+<span class='cm'>     *                      &quot;Format: &quot; + result.format + &quot;\n&quot; +</span>
+<span class='cm'>     *                      &quot;Cancelled: &quot; + result.cancelled);</span>
+<span class='cm'>     *              },</span>
+<span class='cm'>     *              failure: function (error) {</span>
+<span class='cm'>     *                  alert(&quot;Scanning failed: &quot; + error);</span>
+<span class='cm'>     *              }</span>
+<span class='cm'>     *          });</span>
+<span class='cm'>     */</span>
+    <span class='nx'>scan</span> <span class='o'>:</span> <span class='kd'>function</span> <span class='p'>(</span><span class='nx'>cfg</span><span class='p'>)</span> <span class='p'>{</span>
+        <span class='kd'>var</span> <span class='nx'>success</span> <span class='o'>=</span> <span class='nx'>cfg</span><span class='p'>.</span><span class='nx'>success</span> <span class='o'>||</span> <span class='nx'>Ext</span><span class='p'>.</span><span class='nx'>emptyFn</span><span class='p'>,</span>
+            <span class='nx'>failure</span> <span class='o'>=</span> <span class='nx'>cfg</span><span class='p'>.</span><span class='nx'>failure</span> <span class='o'>||</span> <span class='nx'>Ext</span><span class='p'>.</span><span class='nx'>emptyFn</span><span class='p'>,</span>
+            <span class='nx'>scope</span> <span class='o'>=</span> <span class='nx'>cfg</span><span class='p'>.</span><span class='nx'>scope</span> <span class='o'>||</span> <span class='nx'>Ext</span><span class='p'>.</span><span class='nx'>global</span><span class='p'>,</span>
+            <span class='nx'>scanner</span> <span class='o'>=</span> <span class='k'>this</span><span class='p'>.</span><span class='nx'>getScanner</span><span class='p'>();</span>
+
+        <span class='k'>if</span> <span class='p'>(</span><span class='o'>!</span><span class='nx'>scanner</span><span class='p'>)</span> <span class='p'>{</span>
+            <span class='k'>return</span> <span class='nx'>failure</span><span class='p'>(</span><span class='s1'>&#39;Barcode scanner plugin is not present&#39;</span><span class='p'>);</span>
+        <span class='p'>}</span>
+
+        <span class='k'>return</span> <span class='nx'>scanner</span><span class='p'>.</span><span class='nx'>scan</span><span class='p'>(</span><span class='nx'>success</span><span class='p'>.</span><span class='nx'>bind</span><span class='p'>(</span><span class='nx'>scope</span><span class='p'>),</span> <span class='nx'>failure</span><span class='p'>.</span><span class='nx'>bind</span><span class='p'>(</span><span class='nx'>scope</span><span class='p'>));</span>
+    <span class='p'>}</span>
+<span class='p'>});</span>
+</code></pre></div> 
+
+
+<!-- end wrapper -->  
+</div>
+
+<div class="row text-center">
+    <a href="http://hr.linkedin.com/in/grguru/">Grgur Grisogono</a> | <a href="http://twitter.com/ggrgur">@ggrgur</a> | <a href="http://github.com/grgur">Github: grgur</a>
+  </ul>
+</div>
+
+  <!-- End Whole-Body Div -->
+  </div>
+</div>
+
+  <!-- Included JS Files (Compressed) -->
+  <!-- Included JS Files (Compressed) -->
+  <script src="/assets/js/jquery.js"></script>
+  <script src="/assets/js/foundation.min.js"></script>
+  <script src="/assets/js/fastclick.js"></script>
+  <script src="/assets/js/jquery.cookie.js"></script>
+  <script src="/assets/js/placeholder.js"></script>
+  
+  <!-- Initialize JS Plugins -->
+  <script src="/assets/js/app.js"></script>
+
+</body>
+</html>
+
+

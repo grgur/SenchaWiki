@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width" />
+
+  <title>Debugging on Android KitKat</title>
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="/assets/css/foundation.min.css">
+  <link rel="stylesheet" href="/assets/css/pygments.css">
+  <link rel="stylesheet" href="/assets/css/normalize.css">
+  <link rel="stylesheet" href="/assets/css/app.css">
+
+  <script src="/assets/js/modernizr.foundation.js"></script>
+
+</head>
+  <body>
+    
+    <nav class="top-bar" data-topbar>
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="/">Grgur's Sencha Wiki</a></h1>
+    </li>
+    <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+    <li class="divider"></li>
+      <li class="has-dropdown">
+        <a href="#">Native Development</a>
+        <ul class="dropdown">
+          <li><label>General</label></li>
+          <li><a href="/native/adding_cordova_plugins.html">Adding Cordova Plugins</a></li>
+          <li><a href="/native/barcodescanner.html">Barcode Scanner</a></li>
+          <li><a href="/native/changing_application_id.html">Changing App ID</a></li>
+          <li><a href="/native/debugging_js.html">Debugging Native Builds</a></li>
+          <li><a href="/native/ignores.html">Setting .gitignore</a></li>
+          <li class="divider"></li>
+          <li><label>iOS</label></li>
+          <li><a href="/native/ios/creating_ipa.html">Automatic IPA Generation</a></li>
+          <li class="divider"></li>
+          <li><label>Android</label></li>
+          <li><a href="/native/android/building_release.html">Building for Release</a></li>
+          <li><a href="/native/android/build_and_deploy.html">Build and Deploy</a></li>
+          <li><a href="/native/android/debugging_kitkat.html">Debugging KitKat+ (4.4+)</a></li>
+          <li><a href="/native/android/debugging.html">Debugging older (<=4.3)</a></li>
+          <li><a href="/native/android/adb_path.html">Adb Path Errors</a></li>
+        </ul>
+      </li>
+
+      <!-- <li class="has-dropdown">
+        <a href="#">iOS</a>
+        <ul class="dropdown">
+          <li><a href="/native/ios/creating_ipa.html">Automatic IPA Generation</a></li>
+        </ul>
+      </li>
+
+      <li class="has-dropdown">
+        <a href="#">Android</a>
+        <ul class="dropdown">
+          <li><a href="/native/android/building_release.html">Building for Release</a></li>
+          <li><a href="/native/android/build_and_deploy.html">Build and Deploy</a></li>
+          <li><a href="/native/android/debugging_kitkat.html">Debugging KitKat+ (4.4+)</a></li>
+          <li><a href="/native/android/debugging.html">Debugging older (<=4.3)</a></li>
+          <li><a href="/native/android/adb_path.html">Adb Path Errors</a></li>
+        </ul>
+      </li> -->
+    </ul>
+
+  </section>
+</nav>
+
+<!-- Whole Body Div -->
+<div class="row">
+<div class="twelve columns centered">
+
+
+<!-- Main page content -->
+<div id="wrapper">
+
+
+  <h1 id="debugging_on_android_kitkat">Debugging on Android KitKat</h1>
+
+<p><strong>Setup</strong></p>
+
+<ol>
+<li>Enable debugging in the Java view file (<code>./cordova/platforms/android/src/foo/bar/MI/MI.java</code>). The code below belongs to the bottom of the <code>onCreate</code> method</li>
+</ol>
+<div class='highlight'><pre><code class='java'><span class='k'>if</span><span class='o'>(</span><span class='n'>Build</span><span class='o'>.</span><span class='na'>VERSION</span><span class='o'>.</span><span class='na'>SDK_INT</span> <span class='o'>&gt;=</span> <span class='n'>Build</span><span class='o'>.</span><span class='na'>VERSION_CODES</span><span class='o'>.</span><span class='na'>KITKAT</span><span class='o'>)</span> <span class='o'>{</span>
+    <span class='n'>WebView</span><span class='o'>.</span><span class='na'>setWebContentsDebuggingEnabled</span><span class='o'>(</span><span class='kc'>true</span><span class='o'>);</span>
+<span class='o'>}</span>
+</code></pre></div>
+<ol>
+<li>Add the necessary imports in the same file</li>
+</ol>
+<div class='highlight'><pre><code class='java'><span class='kn'>import</span> <span class='nn'>android.os.Build</span><span class='o'>;</span>
+<span class='kn'>import</span> <span class='nn'>android.webkit.WebView</span><span class='o'>;</span>
+</code></pre></div>
+<ol>
+<li>Make sure you have Android SDK level 19 installed and that android tools are in PATH</li>
+
+<li><code>sencha app build native</code></li>
+</ol>
+
+<p><strong>Debugging</strong></p>
+
+<ol>
+<li>Connect your phone via USB cable</li>
+
+<li>Transfer the binary to the phone. A convenient way is running this command: <code>adb -d install -r cordova/platforms/android/bin/MYAPP-debug.apk</code></li>
+
+<li>Open the app on the phone</li>
+
+<li>In Chrome (version 30+) open this page: <code>chrome://inspect/#devices</code></li>
+
+<li>Locate your app on the screen and press <em>Inspect</em></li>
+</ol> 
+
+
+<!-- end wrapper -->  
+</div>
+
+<div class="row text-center">
+    <a href="http://hr.linkedin.com/in/grguru/">Grgur Grisogono</a> | <a href="http://twitter.com/ggrgur">@ggrgur</a> | <a href="http://github.com/grgur">Github: grgur</a>
+  </ul>
+</div>
+
+  <!-- End Whole-Body Div -->
+  </div>
+</div>
+
+  <!-- Included JS Files (Compressed) -->
+  <!-- Included JS Files (Compressed) -->
+  <script src="/assets/js/jquery.js"></script>
+  <script src="/assets/js/foundation.min.js"></script>
+  <script src="/assets/js/fastclick.js"></script>
+  <script src="/assets/js/jquery.cookie.js"></script>
+  <script src="/assets/js/placeholder.js"></script>
+  
+  <!-- Initialize JS Plugins -->
+  <script src="/assets/js/app.js"></script>
+
+</body>
+</html>
+
+

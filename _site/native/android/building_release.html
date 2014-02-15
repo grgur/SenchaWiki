@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width" />
+
+  <title>Building for Release to Google Play Store</title>
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="/assets/css/foundation.min.css">
+  <link rel="stylesheet" href="/assets/css/pygments.css">
+  <link rel="stylesheet" href="/assets/css/normalize.css">
+  <link rel="stylesheet" href="/assets/css/app.css">
+
+  <script src="/assets/js/modernizr.foundation.js"></script>
+
+</head>
+  <body>
+    
+    <nav class="top-bar" data-topbar>
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="/">Grgur's Sencha Wiki</a></h1>
+    </li>
+    <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+    <li class="divider"></li>
+      <li class="has-dropdown">
+        <a href="#">Native Development</a>
+        <ul class="dropdown">
+          <li><label>General</label></li>
+          <li><a href="/native/adding_cordova_plugins.html">Adding Cordova Plugins</a></li>
+          <li><a href="/native/barcodescanner.html">Barcode Scanner</a></li>
+          <li><a href="/native/changing_application_id.html">Changing App ID</a></li>
+          <li><a href="/native/debugging_js.html">Debugging Native Builds</a></li>
+          <li><a href="/native/ignores.html">Setting .gitignore</a></li>
+          <li class="divider"></li>
+          <li><label>iOS</label></li>
+          <li><a href="/native/ios/creating_ipa.html">Automatic IPA Generation</a></li>
+          <li class="divider"></li>
+          <li><label>Android</label></li>
+          <li><a href="/native/android/building_release.html">Building for Release</a></li>
+          <li><a href="/native/android/build_and_deploy.html">Build and Deploy</a></li>
+          <li><a href="/native/android/debugging_kitkat.html">Debugging KitKat+ (4.4+)</a></li>
+          <li><a href="/native/android/debugging.html">Debugging older (<=4.3)</a></li>
+          <li><a href="/native/android/adb_path.html">Adb Path Errors</a></li>
+        </ul>
+      </li>
+
+      <!-- <li class="has-dropdown">
+        <a href="#">iOS</a>
+        <ul class="dropdown">
+          <li><a href="/native/ios/creating_ipa.html">Automatic IPA Generation</a></li>
+        </ul>
+      </li>
+
+      <li class="has-dropdown">
+        <a href="#">Android</a>
+        <ul class="dropdown">
+          <li><a href="/native/android/building_release.html">Building for Release</a></li>
+          <li><a href="/native/android/build_and_deploy.html">Build and Deploy</a></li>
+          <li><a href="/native/android/debugging_kitkat.html">Debugging KitKat+ (4.4+)</a></li>
+          <li><a href="/native/android/debugging.html">Debugging older (<=4.3)</a></li>
+          <li><a href="/native/android/adb_path.html">Adb Path Errors</a></li>
+        </ul>
+      </li> -->
+    </ul>
+
+  </section>
+</nav>
+
+<!-- Whole Body Div -->
+<div class="row">
+<div class="twelve columns centered">
+
+
+<!-- Main page content -->
+<div id="wrapper">
+
+
+  <h1 id="building_for_release_to_google_play_store">Building for Release to Google Play Store</h1>
+
+<ol>
+<li>Open <code>.sencha/app/cordova-impl.xml</code></li>
+
+<li>Find <code>target name=&quot;-cordova-build&quot;</code> (should be around line 117)</li>
+
+<li>Append <code>--release</code> to the cordova build command. The new value will be: <code>cordova build ${cordova.platforms.clean} --release</code></li>
+
+<li>Create <code>ant.properties</code> file in <code>cordova/platforms/android/</code></li>
+
+<li>Append this content with your values:
+<pre><code>key.store=../../path/to/AndroidRelease.keystore
+key.store.password=mypassword
+key.alias=myKeyAlias
+key.alias.password=mypassword</code></pre>
+</li>
+
+<li>Open <code>cordova/platforms/android/AndroidManifest.xml</code> and set debuggable to false on this line</li>
+</ol>
+<div class='highlight'><pre><code class='xml'><span class='nt'>&lt;application</span> 
+	<span class='na'>android:debuggable=</span><span class='s'>&quot;true&quot;</span> 
+	<span class='na'>android:hardwareAccelerated=</span><span class='s'>&quot;true&quot;</span> 
+	<span class='na'>android:icon=</span><span class='s'>&quot;@drawable/icon&quot;</span> 
+	<span class='na'>android:label=</span><span class='s'>&quot;@string/app_name&quot;</span><span class='nt'>&gt;</span>
+</code></pre></div>
+<p>… becomes</p>
+<div class='highlight'><pre><code class='xml'><span class='nt'>&lt;application</span> 
+	<span class='na'>android:debuggable=</span><span class='s'>&quot;false&quot;</span> 
+	<span class='na'>android:hardwareAccelerated=</span><span class='s'>&quot;true&quot;</span> 
+	<span class='na'>android:icon=</span><span class='s'>&quot;@drawable/icon&quot;</span> 
+	<span class='na'>android:label=</span><span class='s'>&quot;@string/app_name&quot;</span><span class='nt'>&gt;</span>
+</code></pre></div>
+<p>The next time you build you will get new apk files that are also signed automatically.</p>
+
+<p>If you want to sign manually then make sure ant.properties file is not present. Refer to <a href="http://developer.android.com/tools/publishing/app-signing.html">this article</a> to sign manually.</p> 
+
+
+<!-- end wrapper -->  
+</div>
+
+<div class="row text-center">
+    <a href="http://hr.linkedin.com/in/grguru/">Grgur Grisogono</a> | <a href="http://twitter.com/ggrgur">@ggrgur</a> | <a href="http://github.com/grgur">Github: grgur</a>
+  </ul>
+</div>
+
+  <!-- End Whole-Body Div -->
+  </div>
+</div>
+
+  <!-- Included JS Files (Compressed) -->
+  <!-- Included JS Files (Compressed) -->
+  <script src="/assets/js/jquery.js"></script>
+  <script src="/assets/js/foundation.min.js"></script>
+  <script src="/assets/js/fastclick.js"></script>
+  <script src="/assets/js/jquery.cookie.js"></script>
+  <script src="/assets/js/placeholder.js"></script>
+  
+  <!-- Initialize JS Plugins -->
+  <script src="/assets/js/app.js"></script>
+
+</body>
+</html>
+
+
