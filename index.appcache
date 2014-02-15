@@ -1,20 +1,18 @@
 CACHE MANIFEST
 
-#version 1.04 2-14-2014
+#version 2.00 2-15-2014
 
 CACHE:
 
 #images
 
 #internal HTML documents
-index.html
+
 
 #style sheets
 
 #javascript files
-http://www.google-analytics.com/ga.js
-https://ssl.google-analytics.com/ga.js
-config.json
+
 
 NETWORK:
 *
