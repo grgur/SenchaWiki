@@ -1,53 +1,41 @@
 CACHE MANIFEST
 
-#version 2.03 2-15-2014
+#version 2.04 2-15-2014
 
 CACHE:
 
 #images
 
-
 #internal HTML documents
-http://grgur.github.io/SenchaWiki/
-http://grgur.github.io/SenchaWiki//native/adding_cordova_plugins.html
-http://grgur.github.io/SenchaWiki//native/android/adb_path.html
-http://grgur.github.io/SenchaWiki//native/android/build_and_deploy.html
-http://grgur.github.io/SenchaWiki//native/android/building_release.html
-http://grgur.github.io/SenchaWiki//native/android/debugging.html
-http://grgur.github.io/SenchaWiki//native/android/debugging_kitkat.html
-http://grgur.github.io/SenchaWiki//native/barcodescanner.html
-http://grgur.github.io/SenchaWiki//native/changing_application_id.html
-http://grgur.github.io/SenchaWiki//native/debugging_js.html
-http://grgur.github.io/SenchaWiki//native/ignores.html
-http://grgur.github.io/SenchaWiki//native/ios/creating_ipa.html
-http://grgur.github.io/SenchaWiki/native/adding_cordova_plugins.html
-http://grgur.github.io/SenchaWiki/native/android/adb_path.html
-http://grgur.github.io/SenchaWiki/native/android/build_and_deploy.html
-http://grgur.github.io/SenchaWiki/native/android/building_release.html
-http://grgur.github.io/SenchaWiki/native/android/debugging.html
-http://grgur.github.io/SenchaWiki/native/android/debugging_kitkat.html
-http://grgur.github.io/SenchaWiki/native/barcodescanner.html
-http://grgur.github.io/SenchaWiki/native/changing_application_id.html
-http://grgur.github.io/SenchaWiki/native/debugging_js.html
-http://grgur.github.io/SenchaWiki/native/ignores.html
-http://grgur.github.io/SenchaWiki/native/ios/creating_ipa.html
+http://wiki.grgur.com/
+http://wiki.grgur.com/native/adding_cordova_plugins.html
+http://wiki.grgur.com/native/android/adb_path.html
+http://wiki.grgur.com/native/android/build_and_deploy.html
+http://wiki.grgur.com/native/android/building_release.html
+http://wiki.grgur.com/native/android/debugging.html
+http://wiki.grgur.com/native/android/debugging_kitkat.html
+http://wiki.grgur.com/native/barcodescanner.html
+http://wiki.grgur.com/native/changing_application_id.html
+http://wiki.grgur.com/native/debugging_js.html
+http://wiki.grgur.com/native/ignores.html
+http://wiki.grgur.com/native/ios/creating_ipa.html
 
 #style sheets
-http://grgur.github.io/SenchaWiki/assets/css/app.css
-http://grgur.github.io/SenchaWiki/assets/css/foundation.min.css
-http://grgur.github.io/SenchaWiki/assets/css/normalize.css
-http://grgur.github.io/SenchaWiki/assets/css/pygments.css
+http://wiki.grgur.com/assets/css/app.css
+http://wiki.grgur.com/assets/css/foundation.min.css
+http://wiki.grgur.com/assets/css/normalize.css
+http://wiki.grgur.com/assets/css/pygments.css
 
 #style sheet images
 
 #javascript files
-http://grgur.github.io/SenchaWiki/assets/js/modernizr.foundation.js
-http://grgur.github.io/SenchaWiki/assets/js/jquery.js
-http://grgur.github.io/SenchaWiki/assets/js/foundation.min.js
-http://grgur.github.io/SenchaWiki/assets/js/fastclick.js
-http://grgur.github.io/SenchaWiki/assets/js/jquery.cookie.js
-http://grgur.github.io/SenchaWiki/assets/js/placeholder.js
-http://grgur.github.io/SenchaWiki/assets/js/app.js
+http://wiki.grgur.com/assets/js/modernizr.foundation.js
+http://wiki.grgur.com/assets/js/jquery.js
+http://wiki.grgur.com/assets/js/foundation.min.js
+http://wiki.grgur.com/assets/js/fastclick.js
+http://wiki.grgur.com/assets/js/jquery.cookie.js
+http://wiki.grgur.com/assets/js/placeholder.js
+http://wiki.grgur.com/assets/js/app.js
 
 NETWORK:
 *
