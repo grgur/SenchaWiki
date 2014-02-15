@@ -97,6 +97,12 @@ cordova/platforms/ios/MI.xcodeproj/project.xcworkspace
 cordova/platforms/ios/MI.xcodeproj/xcuserdata
 ```
 
+If you already commited any of the files and folders we just added to .gitignore, you will have to remove them from repo to apply the change:
+
+{% highlight bash %}
+git rm -r --cached FILE_OR_FOLDER_PATH
+{% endhighlight %}
+
 Cordova's `.gitignore` fix
 -----------------------
 
