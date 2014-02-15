@@ -1,6 +1,6 @@
 CACHE MANIFEST
 
-#version 2.18 2-15-2014
+#version 2.20 2-15-2014
 
 CACHE:
 
@@ -40,6 +40,7 @@ http://www.google-analytics.com/analytics.js
 http://ct1.addthis.com/static/r07/auth016.js
 http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52ff6814440a1f04
 http://ct1.addthis.com/static/r07/core122.js
+http://platform.twitter.com/widgets.js
 
 
 NETWORK:
