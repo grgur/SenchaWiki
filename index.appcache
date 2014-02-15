@@ -1,6 +1,6 @@
 CACHE MANIFEST
 
-#version 2.23 2-15-2014
+#version 2.24 2-15-2014
 
 CACHE:
 
@@ -39,7 +39,6 @@ https://apis.google.com/_/scs/apps-static/_/js/k=oz.gapi.en.VgSTvFztnUg.O/m=auth
 https://apis.google.com/_/scs/apps-static/_/js/k=oz.gapi.en.VgSTvFztnUg.O/m=plusone/rt=j/sv=1/d=1/ed=1/am=IQ/rs=AItRSTNE1bxZzHishgLA3o4dDQJqD1jusQ/cb=gapi.loaded_0
 http://ct1.addthis.com/static/r07/auth016.js
 http://platform.twitter.com/js/tfw/hub/client.js
-http://apis.google.com/js/plusone.js
 http://platform.twitter.com/widgets.js
 http://www.google-analytics.com/analytics.js
 http://wiki.grgur.com/assets/js/modernizr.foundation.js
