@@ -70,20 +70,3 @@ var disqus_shortname = 'grgurwiki'; // required: replace example with your forum
     dsq.src = '//platform.twitter.com/widgets.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 })();
-
-
-
-
-//addthis
-addthis.layers({
-  'theme' : 'transparent',
-  'share' : {
-    'position' : 'left',
-    'numPreferredServices' : 4
-  }, 
-  'follow' : {
-    'services' : [
-      {'service': 'twitter', 'id': 'ggrgur'}
-    ]
-  }   
-});
