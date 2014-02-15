@@ -4,6 +4,9 @@ date:   2014-02-14 19:05:21
 title: What to .gitignore
 ---
 
+Setting Git Ignore Rules in Sencha Touch + Cordova Apps
+=======
+
 Once you create your first native built, the number of files in your project will increase tremendeously. You don't want most of that to clutter your Git repo as they will re-generate on each `sencha app build native`.
 
 Global (project) `.gitignore`
