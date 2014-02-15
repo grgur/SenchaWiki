@@ -4,4 +4,4 @@ linkedin:    http://hr.linkedin.com/in/grguru/
 twitter:     ggrgur
 github:      grgur
 destination: ./_site
-baseurl: 	/
+baseurl: 	.
