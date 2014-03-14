@@ -11,6 +11,12 @@ When you debug on Android phones, copying over to native device and manually ins
 
 Here is what I often do to build a ST2 app and deploy automatically:
 
+**Cordova 3.4+ **
+{% highlight bash %}
+sencha app build native && adb -d install -r cordova/platforms/android/ant-build/MYAPP-debug.apk 
+{% endhighlight %}
+
+**Cordova 3.0 - 3.3.0**
 {% highlight bash %}
 sencha app build native && adb -d install -r cordova/platforms/android/bin/MYAPP-debug.apk 
 {% endhighlight %}
